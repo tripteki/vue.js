@@ -1,0 +1,12 @@
+#!/usr/bin/env expect -f
+
+set timeout -1
+set project "basecode"
+
+spawn sh -c "echo 'Project Name :'"
+expect "Project Name :\r"
+send -- "$project\r"
+
+spawn sh -c "npx @vue/cli create $project --default"
+
+expect eof
